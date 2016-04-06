@@ -3,10 +3,41 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files #
-*.jar
+*.class
 *.war
 *.ear
+*.jar
+
+# IDEA\Eclipse files and directories
+.externalToolBuilders
+.settings
+.cproject
+.project
+.classpath
+.pmd
+.ruleset
+.springBeans
+eclipsebin/*
+classes/*
+gensrc/*
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# for hybris
+extensioninfo.xsd
+build.xml
+beans.xsd
+items.xsd
+
+
+
+**/gensrc/*
+
+custom/**/gensrc/*
+
+custom/training/gensrc/
+
+*-testclasses.xml
+*-webtestclasses.xml
+*.build.number
