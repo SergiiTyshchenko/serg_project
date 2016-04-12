@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://F:/hybris/hybris/bin/custom/training/config.iml" filepath="F:/hybris/hybris/bin/custom/training/config.iml" />
+      <module fileurl="file://F:/hybris/hybris/bin/custom/training/platform.iml" filepath="F:/hybris/hybris/bin/custom/training/platform.iml" />
+      <module fileurl="file://F:/hybris/hybris/bin/custom/training/training.iml" filepath="F:/hybris/hybris/bin/custom/training/training.iml" />
+    </modules>
+  </component>
+</project>
