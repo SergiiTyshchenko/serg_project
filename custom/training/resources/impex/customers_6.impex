@@ -1,0 +1,7 @@
+INSERT_UPDATE NewCustomer;uid[unique=true];Name;status;attemptCount
+;20;"CustomerA";0;20
+;30;"CustomerB";1;30
+;40;"CustomerC";0;40
+;50;"CustomerD";1;50
+;60;"CustomerE";0;60
+;70;"CustomerF";1;70
