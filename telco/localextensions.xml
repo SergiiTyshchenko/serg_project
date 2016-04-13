@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hybrisconfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="resources/schemas/extensions.xsd">
+    <extensions>
+ 
+ 
+        <path dir="${HYBRIS_BIN_DIR}" />
+                                         
+        <!-- ext-platform -->
+        <extension name="admincockpit" />
+        <extension name="backoffice" />
+        <extension name="cockpit" />
+        <extension name="hmc" />
+        <extension name="mcc" />
+        <extension name="platformhmc" />
+                                         
+        <!-- ext-commerce -->
+        <extension name="btg" />
+        <extension name="btgcockpit" />
+        <extension name="commercesearch" />
+        <extension name="commercesearchbackoffice" />
+        <extension name="commercesearchhmc" />
+        <extension name="commerceservices" />
+        <extension name="basecommerce" />
+        <extension name="payment" />
+        <extension name="promotions" />
+        <extension name="voucher" />
+        <extension name="customerreview" />
+        <extension name="wishlist" />
+        <extension name="ticketsystem" />
+        <extension name="solrfacetsearch" />
+        <extension name="solrfacetsearchhmc" />
+        <extension name="configurablebundleservices" />
+        <extension name="configurablebundlecockpits" />
+        <extension name="subscriptionservices" />
+        <extension name="subscriptionfacades" />
+        <extension name="subscriptioncockpits" />
+        <extension name="subscriptionserviceshmc" />
+        <extension name="entitlementservices" />
+        <extension name="entitlementfacades" />
+        <extension name="entitlementcockpits" />
+        <extension name="commercefacades" />
+                                         
+        <!-- ext-data -->
+        <extension name="commercesearchsampledata" />
+        <extension name="telcostore" />
+                                         
+        <!-- ext-content -->
+        <extension name="productcockpit" />
+        <extension name="cms2" />
+        <extension name="cms2lib" />
+        <extension name="cmscockpit" />
+                                         
+        <!-- ext-channel -->
+        <extension name="cscockpit" />
+                                         
+        <!-- ext-addon -->
+        <extension name="addonsupport" />
+                                                                                             
+        <extension name="cissubscription" />
+                                                 
+        <!-- ext-template-->     
+<extension dir="F:\hybris_5.5\hybris\bin/custom/telcotrail/telcotrailcore"/>
+<extension dir="F:\hybris_5.5\hybris\bin/custom/telcotrail/telcotrailinitialdata"/>
+<extension dir="F:\hybris_5.5\hybris\bin/custom/telcotrail/telcotrailfacades"/>
+<extension dir="F:\hybris_5.5\hybris\bin/custom/telcotrail/telcotrailstorefront"/>
+<extension dir="F:\hybris_5.5\hybris\bin/custom/telcotrail/telcotrailcockpits"/>
+                                     
+        <!-- ext-accelerator -->
+        <extension name="acceleratorservices" />
+        <extension name="acceleratorfacades" />
+        <extension name="acceleratorcms" />
+        <extension name="acceleratorstorefrontcommons" />
+
+        <!-- SBG web application -->
+        <webapp contextroot="hybris-cis-mock-subscription-web" path="${HYBRIS_BIN_DIR}/../../hybris-sbg/binary/hybris-cis-mock-subscription-web.war" />
+               
+    </extensions>
+</hybrisconfig>
