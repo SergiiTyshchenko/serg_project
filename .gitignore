@@ -17,6 +17,7 @@
 .pmd
 .ruleset
 .springBeans
+.idea
 eclipsebin/*
 classes/*
 gensrc/*
@@ -29,14 +30,14 @@ extensioninfo.xsd
 build.xml
 beans.xsd
 items.xsd
-
+buildcallbacks.xml
 
 
 **/gensrc/*
 
 custom/**/gensrc/*
-
 custom/training/gensrc/
+jmeter/*
 
 *-testclasses.xml
 *-webtestclasses.xml
