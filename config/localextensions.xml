@@ -61,15 +61,15 @@
         <extension name="assistedservicestorefront" />
 
 		<!-- ext-template -->
-		<extension name="training"/>
-		<extension name="traininghmc"/>
-		<extension name="trainfulfilmentprocess"/>
-		<extension name="traincore"/>
-		<extension name="traininitialdata"/>
-		<extension name="trainfacades"/>
-		<extension name="traintest"/>
-		<extension name="trainstorefront"/>
-		<extension name="traincockpits"/>
+		 <extension name="trainingfulfilmentprocess"/>
+		 <extension name="trainingcore"/>
+		 <extension name="traininginitialdata"/>
+		 <extension name="trainingfacades"/>
+		 <extension name="trainingtest"/>
+		 <extension name="trainingstorefront"/>
+		 <extension name="trainingcockpits"/>
+		 <extension name="training"/>
+		 <extension name="traininghmc"/>
 
 		<!-- ext-accelerator -->
 		<extension name="acceleratorservices" />

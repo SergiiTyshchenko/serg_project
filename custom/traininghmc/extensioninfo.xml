@@ -16,11 +16,11 @@
    <extension abstractclassprefix="Generated" classprefix="Traininghmc" managername="TraininghmcManager" managersuperclass="de.hybris.platform.jalo.extension.Extension" name="traininghmc">
                
       <!-- you should add all required extensions to this list, except platform extensions which are automatically required -->         
-      <requires-extension name="hmc"/>      
-      
+      <!-- <requires-extension name="cms"/> -->         
+      <requires-extension name="hmc"/> 
 
-      <coremodule generated="true" manager="com.epam.training.hmc.jalo.TraininghmcManager" packageroot="com.epam.traininghmc"/>
-
+      <coremodule generated="true" manager="com.epam.training.hmc.jalo.TraininghmcManager" packageroot="com.epam.training.hmc"/>				
+	
     <!--  <webmodule jspcompile="false" webroot="/traininghmc"/> -->     
 					
 	<hmcmodule extensionclassname="com.epam.training.hmc.TrainingHMCExtension"/>

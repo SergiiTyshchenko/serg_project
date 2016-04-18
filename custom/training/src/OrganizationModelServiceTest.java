@@ -5,7 +5,8 @@
 
 import static org.junit.Assert.assertEquals;
 
-import com.epam.training.hmc.model.OrganizationModel;
+
+import com.epam.training.model.OrganizationModel;
 import com.epam.training.services.OrganizationModelService;
 import de.hybris.platform.core.model.user.CustomerModel;
 

@@ -23,7 +23,6 @@
 
 	<bean id="organizationModelService" class="com.epam.training.services.OrganizationModelService" />
 	
-	<import resource="classpath:/training/integration/hot-folder-store-hybris-spring.xml"/>
 	<!--
 	The hybris platform provides one single Spring application context for beans located at the jalo layer.
 	Each extension can add beans to this context by specifying them at this configuration file.

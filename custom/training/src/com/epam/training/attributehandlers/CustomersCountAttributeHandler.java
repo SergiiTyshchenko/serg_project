@@ -3,7 +3,9 @@
  */
 package com.epam.training.attributehandlers;
 
-import com.epam.training.hmc.model.OrganizationModel;
+
+
+import com.epam.training.model.OrganizationModel;
 import de.hybris.platform.servicelayer.model.attribute.AbstractDynamicAttributeHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;

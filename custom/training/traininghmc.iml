@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="EclipseModuleManager">
+    <libelement value="file://F:\hybris_5.5.0\hybris\bin\custom\training\traininghmc\resources" />
+    <src_description expected_position="3">
+      <src_folder value="file://$MODULE_DIR$/../traininghmc/src" expected_position="4" />
+      <src_folder value="file://$MODULE_DIR$/../traininghmc/web/src" expected_position="5" />
+      <src_folder value="file://$MODULE_DIR$/../traininghmc/testsrc" expected_position="6" />
+      <src_folder value="file://$MODULE_DIR$/../traininghmc/gensrc" expected_position="7" />
+    </src_description>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/../traininghmc/eclipsebin/notused" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../traininghmc">
+      <sourceFolder url="file://$MODULE_DIR$/../traininghmc/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../traininghmc/web/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../traininghmc/testsrc" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../traininghmc/gensrc" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="module" module-name="platform" />
+    <orderEntry type="module-library" exported="">
+      <library name="resources">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../traininghmc/resources" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

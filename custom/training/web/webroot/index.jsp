@@ -1,7 +1,7 @@
 <html>
 	<body>
-		<h1>training</h1>
-		Welcome to my extension.
+		<h1>Sergii custom extention</h1>
+		Welcome to my first hybris extention!
 	</body>
 </html>
 

@@ -3,7 +3,8 @@
  */
 package com.epam.training.services;
 
-import com.epam.training.hmc.model.OrganizationModel;
+
+import com.epam.training.model.OrganizationModel;
 import org.apache.commons.collections.CollectionUtils;
 
 /**

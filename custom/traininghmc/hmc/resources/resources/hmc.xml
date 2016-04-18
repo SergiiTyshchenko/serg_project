@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns="hybris.de/schemas/hmc/generic"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="hybris.de/schemas/hmc/generic hmc.xsd">
+
+	<!-- Configuration for extension training -->
+    <explorertree>
+        <group name="traininggroup">
+            <typeref type="Customer"/>
+            <typeref type="Organization"/>
+        </group>
+    </explorertree>
+ 
+    <type name="Customer" mode="append">
+            <organizer>
+            <search mode="replace">
+            	<condition attribute="uid"/>
+            	<condition attribute="name"/>
+                <condition attribute="status"/>
+                <condition attribute="attemptCount"/>
+            </search>
+            <result>
+                <listview mode="replace">
+                    <itemlayout>
+                    	<attribute name="uid" width="150"/>
+            			<attribute name="name" width="150"/>
+                        <attribute name="status" width="150"/>
+                        <attribute name="attemptCount" width="150"/>
+                    </itemlayout>
+                </listview>
+            </result>
+            <editor>
+                <essentials>
+                    <listlayout>
+                        <attribute name="status"/>
+                    </listlayout>
+                </essentials>
+                <tab name="tab.training">
+                    <section name="section.training">
+                        <listlayout>
+                            <attribute name="attemptCount"/>                            
+                            <attribute name="organizations">
+		                        <referencecollectioneditor showsearcheditor="true" create="true" remove="true" autosave="true">
+		                           <itemlayout>
+		                              <attribute name="id" width="150"/>
+		                              <attribute name="name" width="150"/>
+		                              <attribute name="phone" width="150"/>
+		                              <attribute name="email" width="150"/>
+		                           </itemlayout>
+		                        </referencecollectioneditor>
+		                     </attribute>
+                        </listlayout>
+                    </section>
+                </tab>
+            </editor>
+        </organizer>
+    </type>
+    
+     <type name="Organization" mode="append">
+            <organizer>
+            <search mode="replace">
+                <condition attribute="id"/>
+                <condition attribute="name"/>
+                <condition attribute="phone"/>
+                <condition attribute="email"/>
+            </search>
+            <result>
+                <listview mode="replace">
+                    <itemlayout>
+                        <attribute name="id" width="150"/>
+                        <attribute name="name" width="150"/>
+                        <attribute name="phone" width="150"/>
+                        <attribute name="email" width="150"/>
+                    </itemlayout>
+                </listview>
+            </result>
+            <editor>
+                <essentials>
+                    <listlayout>
+                        <attribute name="id"/>
+                    </listlayout>
+                </essentials>
+                <tab name="tab.training">
+                    <section name="section.training">
+                        <listlayout>
+                            <attribute name="name"/>
+                        	<attribute name="phone"/>
+                        	<attribute name="email"/>
+                        	<attribute name="myCustomers">
+		                        <referencecollectioneditor showsearcheditor="true" create="true" remove="true" autosave="true">
+		                           <itemlayout>
+			                          <attribute name="uid" width="150"/>
+		                              <attribute name="name" width="150"/>
+		                              <attribute name="status" width="150"/>
+		                              <attribute name="attemptCount" width="150"/>
+		                           </itemlayout>
+		                        </referencecollectioneditor>
+		                     </attribute>
+                        </listlayout>
+                    </section>
+                </tab>
+            </editor>
+        </organizer>
+		<defaultreference mode="append">
+			<itemlayout mode="append">
+				<attribute name="CustomersCount"/>
+			</itemlayout>
+		</defaultreference>
+    </type>
+</configuration>

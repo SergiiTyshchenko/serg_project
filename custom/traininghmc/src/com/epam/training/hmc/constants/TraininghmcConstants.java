@@ -13,8 +13,6 @@
  */
 package com.epam.training.hmc.constants;
 
-import com.epam.traininghmc.constants.GeneratedTraininghmcConstants;
-
 /**
  * Global class for all Traininghmc constants. You can add global constants for your extension into this class.
  */

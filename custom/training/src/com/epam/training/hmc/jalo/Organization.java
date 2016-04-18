@@ -12,7 +12,7 @@ public class Organization extends GeneratedOrganization
 	private final static Logger LOG = Logger.getLogger( Organization.class.getName() );
 	
 	@Override
-	protected Item createItem(final SessionContext ctx, final ComposedType type, final ItemAttributeMap allAttributes) throws JaloBusinessException
+	protected Item createItem(final SessionContext ctx, final ComposedType type, final Item.ItemAttributeMap allAttributes) throws JaloBusinessException
 	{
 		// business code placed here will be executed before the item is created
 		// then create the item
