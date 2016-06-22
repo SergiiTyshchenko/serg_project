@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<config xmlns="http://www.hybris.com/cockpit/config">
+
+
+
+<context component="explorer-tree" merge-by="module">
+		<n:explorer-tree xmlns:n="http://www.hybris.com/cockpitng/config/explorertree">
+			<n:navigation-node id="Training">
+				<n:type-node id="Organization" code="Organization" />
+			</n:navigation-node>
+		</n:explorer-tree>
+	</context>
+
+	<context type="Organization" component="listview">
+		<list:list-view xmlns:list="http://www.hybris.com/cockpitng/component/listView">
+			<list:column qualifier="id"/>
+			<list:column qualifier="name"/>
+			<list:column qualifier="phone"/>
+			<list:column qualifier="email"/>
+			<list:column qualifier="customersCount"/>
+			<list:column qualifier="Customers" type="Customer"/>
+		</list:list-view>
+	</context>
+
+	<context type="Organization" component="simple-search">
+		<yss:simple-search xmlns:yss="http://www.hybris.com/cockpitng/config/simplesearch">
+			<yss:field name="name"/>
+			<yss:sort-field name="name" asc="true"/>
+		</yss:simple-search>
+	</context>
+
+	<context component="editor-area" type="Organization">
+		<editorArea:editorArea xmlns:editorArea="http://www.hybris.com/cockpitng/component/editorArea" name="">
+			<editorArea:tab name="essentials">
+				<editorArea:section name="essentials">
+					<editorArea:attribute qualifier="name"/>
+				</editorArea:section>
+				<editorArea:section name="data">
+					<editorArea:attribute qualifier="phone"/>
+					<editorArea:attribute qualifier="name"/>
+					<editorArea:attribute qualifier="email"/>
+					<editorArea:attribute qualifier="customersCount"/>
+					<editorArea:attribute qualifier="Customers"/>
+				</editorArea:section>
+			</editorArea:tab>
+			<editorArea:tab name="dates">
+				<editorArea:section name="dates">
+					<editorArea:attribute qualifier="creationtime"/>
+					<editorArea:attribute qualifier="modifiedtime"/>
+				</editorArea:section>
+			</editorArea:tab>
+		</editorArea:editorArea>
+	</context>
+
+	<context component="create-wizard" type="Organization">
+		<wz:flow xmlns:wz="http://www.hybris.com/cockpitng/config/wizard-config" id="OrganizationWizard" title="create.organization.title">
+			<wz:prepare id="organizationPrepare">
+				<wz:initialize property="newOrganization" type="Organization"/>
+			</wz:prepare>
+			<wz:step id="step1" label="create.organization.general.label" sublabel="create.organization.general.sublabel">
+				<wz:content id="step1.content">
+					<wz:property-list root="newOrganization">
+						<wz:property qualifier="id" />
+						<wz:property qualifier="phone" type="java.lang.String"/>
+						<wz:property qualifier="name" type="java.lang.String"/>
+						<wz:property qualifier="email" type="java.lang.String"/>
+						<wz:property qualifier="Customers" type="Customer"/>
+					</wz:property-list>
+				</wz:content>
+				<wz:navigation id="step1.navigation">
+					<wz:cancel/>
+					<wz:done visible="newOrganization.id != null">
+						<wz:save property="newOrganization"/>
+					</wz:done>
+				</wz:navigation>
+			</wz:step>
+		</wz:flow>
+	</context>
+
+	<context type="Customer" component="listview">
+		<list:list-view xmlns:list="http://www.hybris.com/cockpitng/component/listView">
+			<list:column qualifier="uid"/>
+			<list:column qualifier="name"/>
+			<list:column qualifier="organizations" type="Organization" label="organizations"/>
+		</list:list-view>
+	</context>
+
+	<context type="Organization" component="base">
+		<y:base xmlns:y="http://www.hybris.com/cockpit/config/hybris">
+			<y:labels id="1">
+				<y:label>name</y:label>
+			</y:labels>
+		</y:base>
+	</context>
+
+	<context component="create-wizard" type="Customer">
+		<wz:flow xmlns:wz="http://www.hybris.com/cockpitng/config/wizard-config" id="CustomerWizard" title="create.customer.title">
+			<wz:prepare id="customerPrepare">
+				<wz:initialize property="newCustomer" type="Customer"/>
+			</wz:prepare>
+			<wz:step id="step1" label="create.customer.general.label" sublabel="create.customer.general.sublabel">
+				<wz:content id="step1.content">
+					<wz:property-list root="newCustomer">
+						<wz:property qualifier="uid" type="java.lang.String"/>
+						<wz:property qualifier="customerID" type="java.lang.String"/>
+						<wz:property qualifier="name" type="java.lang.String"/>
+						<wz:property qualifier="description" type="java.lang.String"/>
+						<wz:property qualifier="organizations" type="Organization"/>
+					</wz:property-list>
+				</wz:content>
+				<wz:navigation id="step1.navigation">
+					<wz:cancel/>
+					<wz:next visible="!#empty(newCustomer.uid)"/>
+					<wz:done visible="!#empty(newCustomer.uid)">
+						<wz:save property="newCustomer"/>
+					</wz:done>
+				</wz:navigation>
+			</wz:step>
+			<wz:step id="step2" label="create.customer.locale.label" sublabel="create.customer.locale.sublabel">
+				<wz:content id="step2.content">
+					<wz:property-list root="newCust">
+						<wz:property qualifier="sessionLanguage"/>
+						<wz:property qualifier="sessionCurrency"/>
+					</wz:property-list>
+				</wz:content>
+				<wz:navigation id="step2.navigation">
+					<wz:cancel/>
+					<wz:back/>
+					<wz:next/>
+					<wz:done>
+						<wz:save property="newCust"/>
+					</wz:done>
+				</wz:navigation>
+			</wz:step>
+			<wz:step id="step3" label="create.customer.groups.label" sublabel="create.customer.groups.sublabel">
+				<wz:content id="step3.content">
+					<wz:property-list root="newCust">
+						<wz:property qualifier="groups"/>
+					</wz:property-list>
+				</wz:content>
+				<wz:navigation id="step3.navigation">
+					<wz:cancel/>
+					<wz:back/>
+					<wz:done>
+						<wz:save property="newCust"/>
+					</wz:done>
+				</wz:navigation>
+			</wz:step>
+		</wz:flow>
+	</context>
+	
+</config>

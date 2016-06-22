@@ -70,6 +70,7 @@
 		 <extension name="trainingcockpits"/>
 		 <extension name="training"/>
 		 <extension name="traininghmc"/>
+		 <extension name="trainingbackoffice"/>
 
 		<!-- ext-accelerator -->
 		<extension name="acceleratorservices" />
