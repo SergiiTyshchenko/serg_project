@@ -14,6 +14,7 @@
 package com.epam.training.storefront.controllers.pages;
 
 import de.hybris.platform.acceleratorstorefrontcommons.controllers.pages.AbstractLoginPageController;
+import de.hybris.platform.acceleratorstorefrontcommons.controllers.util.GlobalMessages;
 import de.hybris.platform.acceleratorstorefrontcommons.forms.RegisterForm;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.cms2.model.pages.AbstractPageModel;
@@ -24,6 +25,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import de.hybris.platform.core.model.user.CustomerModel;
+import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
+import de.hybris.platform.servicelayer.user.UserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
@@ -45,6 +49,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class LoginPageController extends AbstractLoginPageController
 {
 	private HttpSessionRequestCache httpSessionRequestCache;
+
+	@Resource
+	private UserService userService;
 
 	@Override
 	protected String getView()
@@ -81,6 +88,23 @@ public class LoginPageController extends AbstractLoginPageController
 			final HttpServletRequest request, final HttpServletResponse response, final HttpSession session)
 			throws CMSItemNotFoundException
 	{
+
+		final String userUid = (String) session.getAttribute(SPRING_SECURITY_LAST_USERNAME);
+		if (StringUtils.isNotEmpty(userUid))
+		{
+			try
+			{
+				if (((CustomerModel)userService.getUserForUID(userUid)).getStatus())
+				{
+					GlobalMessages.addErrorMessage(model, "login.error.account.locked");
+				}
+			}
+			catch (final UnknownIdentifierException e)
+			{
+				LOG.warn("Session attempt for non existing user name " + userUid);
+			}
+		}
+
 		if (!loginError)
 		{
 			storeReferer(referer, request, response);

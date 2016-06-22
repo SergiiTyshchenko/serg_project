@@ -7,6 +7,7 @@
 *.war
 *.ear
 *.jar
+*.iml
 
 # IDEA\Eclipse files and directories
 .externalToolBuilders

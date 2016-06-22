@@ -14,6 +14,7 @@
 package com.epam.training.storefront.security;
 
 import de.hybris.platform.core.Constants;
+import de.hybris.platform.core.model.user.CustomerModel;
 import de.hybris.platform.core.model.user.UserModel;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
 import de.hybris.platform.servicelayer.model.ModelService;
@@ -60,23 +61,31 @@ public class AcceleratorAuthenticationProvider extends CoreAuthenticationProvide
 	{
 		final String username = (authentication.getPrincipal() == null) ? "NONE_PROVIDED" : authentication.getName();
 
+		CustomerModel userModel = null;
+		try
+		{
+			userModel = (CustomerModel) getUserService().getUserForUID(StringUtils.lowerCase(username));
+		}
+		catch (final UnknownIdentifierException e)
+		{
+			LOG.warn("Brute force attack attempt for non existing user name " + username);
+		}
+		if (userModel == null)
+		{
+			throw new BadCredentialsException("Bad credentials");
+		}
+
 		if (getBruteForceAttackCounter().isAttack(username))
 		{
-			try
-			{
-				final UserModel userModel = getUserService().getUserForUID(StringUtils.lowerCase(username));
-				userModel.setLoginDisabled(true);
-				getModelService().save(userModel);
-				bruteForceAttackCounter.resetUserCounter(userModel.getUid());
-			}
-			catch (final UnknownIdentifierException e)
-			{
-				LOG.warn("Brute force attack attempt for non existing user name " + username);
-			}
-			finally
-			{
-				throw new BadCredentialsException(messages.getMessage("CoreAuthenticationProvider.badCredentials", "Bad credentials"));
-			}
+			userModel.setLoginDisabled(true);
+			userModel.setStatus(Boolean.TRUE);
+			userModel.setAttemptCount(0);
+			getModelService().save(userModel);
+			bruteForceAttackCounter.resetUserCounter(userModel.getUid());
+			throw new LockedException("Locked account");
+		} else {
+			userModel.setAttemptCount(bruteForceAttackCounter.getUserFailedLogins(username));
+			getModelService().save(userModel);
 		}
 
 		return super.authenticate(authentication);
