@@ -35,9 +35,9 @@ buildcallbacks.xml
 
 
 **/gensrc/*
+custom/**/resources/**/**.properties
 
 custom/**/gensrc/*
-custom/training/gensrc/
 jmeter/*
 
 *-testclasses.xml
