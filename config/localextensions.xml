@@ -60,6 +60,9 @@
 		<extension name="b2ccheckoutaddon" />
         <extension name="assistedservicestorefront" />
 
+		<!-- ext-optional -->
+ 		<extension name="platformwebservices"/>
+		
 		<!-- ext-template -->
 		 <extension name="trainingfulfilmentprocess"/>
 		 <extension name="trainingcore"/>
@@ -71,6 +74,7 @@
 		 <extension name="training"/>
 		 <extension name="traininghmc"/>
 		 <extension name="trainingbackoffice"/>
+		 <extension name="trainingwebservices"/>
 
 		<!-- ext-accelerator -->
 		<extension name="acceleratorservices" />
