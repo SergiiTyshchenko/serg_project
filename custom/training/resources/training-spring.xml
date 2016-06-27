@@ -45,6 +45,14 @@
         </property>
     </bean>
 
+     <bean id="emailInterceptor" class="com.epam.training.core.interceptors.OrganizationEmailInterceptor"
+          scope="tenant" autowire="byName"/>
+
+     <bean id="emailInterceptorMapping" scope="tenant"
+          class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+        <property name="interceptor" ref="emailInterceptor"/>
+        <property name="typeCode" value="Organization"/>
+    </bean>
 
     <alias alias="organizationService" name="defaultOrganizationService" />
     <bean id="defaultOrganizationService" class="com.epam.training.services.impl.DefaultOrganizationService">
