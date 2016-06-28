@@ -166,7 +166,7 @@ public class ProductPageController extends AbstractPageController
 		final ProductModel productModel = productService.getProductForCode(productCode);
 		final ProductData productData = productFacade.getProductForOptions(productModel, Arrays.asList(ProductOption.BASIC,
 				ProductOption.PRICE, ProductOption.SUMMARY, ProductOption.DESCRIPTION, ProductOption.CATEGORIES,
-				ProductOption.PROMOTIONS, ProductOption.STOCK, ProductOption.REVIEW, ProductOption.VARIANT_FULL, ProductOption.DELIVERY_MODE_AVAILABILITY));
+				ProductOption.PROMOTIONS, ProductOption.STOCK, ProductOption.REVIEW, ProductOption.ADDITIONAL_INFO, ProductOption.VARIANT_FULL, ProductOption.DELIVERY_MODE_AVAILABILITY));
 
 		sortVariantOptionData(productData);
 		populateProductData(productData, model);
@@ -212,7 +212,7 @@ public class ProductPageController extends AbstractPageController
 		final ProductModel productModel = productService.getProductForCode(productCode);
 		final List<ReviewData> reviews;
 		final ProductData productData = productFacade.getProductForOptions(productModel,
-				Arrays.asList(ProductOption.BASIC, ProductOption.REVIEW));
+				Arrays.asList(ProductOption.BASIC, ProductOption.REVIEW, ProductOption.ADDITIONAL_INFO));
 
 		if ("all".equals(numberOfReviews))
 		{
@@ -300,7 +300,7 @@ public class ProductPageController extends AbstractPageController
 
 		final ProductData productData = productFacade.getProductForOptions(productModel, Arrays.asList(ProductOption.BASIC,
 				ProductOption.PRICE, ProductOption.SUMMARY, ProductOption.DESCRIPTION, ProductOption.GALLERY,
-				ProductOption.CATEGORIES, ProductOption.REVIEW, ProductOption.PROMOTIONS, ProductOption.CLASSIFICATION,
+				ProductOption.CATEGORIES, ProductOption.REVIEW, ProductOption.ADDITIONAL_INFO, ProductOption.PROMOTIONS, ProductOption.CLASSIFICATION,
 				ProductOption.VARIANT_FULL, ProductOption.STOCK, ProductOption.VOLUME_PRICES,
 				ProductOption.DELIVERY_MODE_AVAILABILITY));
 

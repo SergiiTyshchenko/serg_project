@@ -17,6 +17,18 @@
 
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
 
+	<bean class="com.epam.training.data.OrganizationData">
+		<description>Data object representing a Organization</description>
+		<property name="name" type="String"/>
+		<property name="imageUrl" type="String"/>
+	</bean>
+
+	<bean class="com.epam.training.core.data.AdditionalInfoData">
+		<description>Data object representing an AdditionalInfo</description>
+		<property name="id" type="Integer"/>
+		<property name="feature" type="String"/>
+	</bean>
+
 	<!--
 		Example Data POJO
 	

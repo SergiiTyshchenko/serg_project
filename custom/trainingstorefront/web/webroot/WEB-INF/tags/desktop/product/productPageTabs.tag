@@ -5,7 +5,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags" %>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags" %>
 
 
@@ -14,7 +13,10 @@
 	<div class="tabBody"><product:productDetailsTab product="${product}"/></div>
 	<div class="tabHead" id="tab-reviews"><spring:theme code="review.reviews" /></div>
 	<div class="tabBody" ><product:productPageReviewsTab product="${product}"/></div>
+	<div class="tabHead" id="tab-features"><spring:theme code="feature.features" /></div>
+	<div class="tabBody" ><product:productPageFeaturesTab product="${product}"/></div>
 	<cms:pageSlot position="Tabs" var="tabs">
 		<cms:component component="${tabs}"/>
 	</cms:pageSlot>
 </div>
+

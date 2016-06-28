@@ -79,10 +79,10 @@
 	</bean>
 
 	<!-- Add the apparelProductPopulator to the productConverter -->
-	<bean parent="modifyPopulatorList">
+<!--	<bean parent="modifyPopulatorList">
 		<property name="list" ref="productConverter"/>
 		<property name="add" ref="apparelProductPopulator"/>
-	</bean>
+	</bean>-->
 
 	<!-- accelerator Image Format Mappings -->
 	<alias name="acceleratorImageFormatMapping" alias="imageFormatMapping"/>
@@ -197,4 +197,33 @@
 	</bean>
 
 	<bean id="genderData" class="com.epam.training.facades.product.data.GenderData" scope="prototype"/>
+
+	<alias name="defaultAdditionalInfoPopulator" alias="additionalInfoPopulator"/>
+	<bean id="defaultAdditionalInfoPopulator" class="com.epam.training.facades.populators.AdditionalInfoPopulator"/>
+
+	<alias name="defaultAdditionalInfoConverter" alias="additionalInfoConverter"/>
+	<bean id="defaultAdditionalInfoConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="com.epam.training.core.data.AdditionalInfoData"/>
+		<property name="populators">
+			<list>
+				<ref bean="additionalInfoPopulator"/>
+			</list>
+		</property>
+	</bean>
+
+	<alias name="defaultProductAdditionalInfoPopulator" alias="productAdditionalInfoPopulator"/>
+	<bean id="defaultProductAdditionalInfoPopulator" class="com.epam.training.facades.populators.ProductAdditionalInfoPopulator">
+		<property name="productAdditionalInfoConverter" ref="additionalInfoConverter"/>
+	</bean>
+
+	<!-- Add the apparelProductPopulator to the productConverter -->
+	<bean parent="modifyPopulatorList">
+		<property name="list" ref="productConverter"/>
+		<property name="add" ref="apparelProductPopulator"/>
+	</bean>
+
+	<bean parent="modifyPopulatorList">
+		<property name="list" ref="productConverter"/>
+		<property name="add"  ref="productAdditionalInfoPopulator"/>
+	</bean>
 </beans>

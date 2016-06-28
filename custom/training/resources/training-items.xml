@@ -10,6 +10,15 @@
 				<modifiers read="true" write="true" />
 			</targetElement>
 		</relation>
+		<relation code="Product2AdditionalInfo" autocreate="true" localized="false" generate="true">  
+			<description>This relation links product with additional info</description>
+            <sourceElement type="Product" qualifier="product" cardinality="one">  
+				<modifiers read="true" write="true" /> 
+			</sourceElement>
+            <targetElement type="AdditionalInfo" qualifier="additionalInfos" cardinality="many"> 
+				<modifiers read="true" write="true" /> 
+			</targetElement>			
+        </relation>
 	</relations>
 	
 	<itemtypes>
@@ -78,6 +87,19 @@
 						<persistence type="property"/>
 				</attribute>
 			</attributes>
+		</itemtype>
+		<itemtype code="AdditionalInfo" autocreate="true" generate="true">  
+				<deployment table="additionalInfo" typecode="12222" />  
+				<attributes>  
+					<attribute qualifier="id" type="java.lang.Integer">  
+						<modifiers optional="false"/>  
+						<persistence type="property"/>  
+					</attribute>  
+					<attribute qualifier="feature" type="java.lang.String" generate="true">  
+					    <persistence type="property" />  
+						<modifiers optional="false" />  
+				    </attribute>  
+				</attributes>  
 		</itemtype>
 
 	</itemtypes>
