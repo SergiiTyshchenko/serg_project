@@ -1,0 +1,8 @@
+$catalogVersion=catalogVersion(catalog(id[default='Default']),version[default='Staged'])[unique=true];
+
+INSERT_UPDATE MediaFolder;Qualifier[unique=true];path
+;custom;custom
+
+INSERT_UPDATE Media;code[unique=true];$catalogVersion;realfilename;mediaFormat(qualifier);@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];folder(qualifier)[default='custom'];mime[default='image/png']
+;gwaliorOrganization;;gwalior_fort.jpg;Default-WorkingFormat;jar:com.epam.training.jalo.TrainingManager&/training/media/gwalior_fort.jpg;;
+;hoverlaOrganization;;hoverla.jpg;Default-WorkingFormat;jar:com.epam.training.jalo.TrainingManager&/training/media/hoverla.jpg;;

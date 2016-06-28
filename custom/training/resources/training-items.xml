@@ -74,6 +74,9 @@
  					<defaultvalue>0</defaultvalue> 
  					<modifiers read="true" write="false" /> 
 				</attribute> 
+				<attribute qualifier="organizationImage" type="MediaContainer" >
+						<persistence type="property"/>
+				</attribute>
 			</attributes>
 		</itemtype>
 

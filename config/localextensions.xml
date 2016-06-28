@@ -62,6 +62,7 @@
 
 		<!-- ext-optional -->
  		<extension name="platformwebservices"/>
+		<extension name="mediaconversion" />
 		
 		<!-- ext-template -->
 		 <extension name="trainingfulfilmentprocess"/>
