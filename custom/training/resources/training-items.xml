@@ -34,12 +34,27 @@
 		<itemtype code="Organization" autocreate="true" generate="true">
 			<description>New type: Organization</description>
 			<deployment table="Organizations" typecode="10500" />
+			<custom-properties>
+                <property name="catalogItemType">
+                    <value>java.lang.Boolean.TRUE</value>
+                </property>
+                <property name="catalogVersionAttributeQualifier">
+                    <value>"catalogVersion"</value>
+                </property>
+                <property name="uniqueKeyAttributeQualifier">
+                    <value>"id"</value>
+                </property>
+            </custom-properties>
 			<attributes>
 				<attribute autocreate="true" qualifier="id" type="java.lang.Integer">
 					<persistence type="property" />
 					<modifiers optional="false"/>
 					<description>not a PK</description>
 				</attribute>
+                <attribute qualifier="catalogVersion" type="CatalogVersion">
+                    <modifiers initial="true" optional="false" write="false"/>
+                    <persistence type="property"/>
+                </attribute>
 				<attribute autocreate="true" qualifier="name" type="localized:java.lang.String">
 					<persistence type="property" />
 					<modifiers optional="false"/>
