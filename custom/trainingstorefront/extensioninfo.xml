@@ -17,6 +17,7 @@
 		<requires-extension name="btg"/>
 		<requires-extension name="acceleratorstorefrontcommons"/>
 		<requires-extension name="trainingfacades"/>
+		<requires-extension name="training"/>
 
 		<webmodule jspcompile="false" webroot="/trainingstorefront"/>
 			

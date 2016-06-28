@@ -65,6 +65,7 @@
 		<extension name="mediaconversion" />
 		
 		<!-- ext-template -->
+    	 <extension name="randomimageaddon"/>
 		 <extension name="trainingfulfilmentprocess"/>
 		 <extension name="trainingcore"/>
 		 <extension name="traininginitialdata"/>
