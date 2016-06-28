@@ -1,0 +1,2 @@
+INSERT_UPDATE SizeConstraint;descriptor(enclosingType(code),qualifier);id[unique=true,allownull=true];owner(pk)[allownull=true];qualifier;severity(code,itemtype(code));target[allownull=true];type(code);max[allownull=true];min[allownull=true];message[lang=en];
+;Organization:name;OrganizationNameSizeConstraint;;name;ERROR:Severity;com.epam.training.model.OrganizationModel;Organization;20;1;Organization name size must be between 20 and 1.

@@ -1,0 +1,134 @@
+<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:noNamespaceSchemaLocation="items.xsd">
+	<relations>
+		<relation code="Customers2Organizations" generate="true" localized="false" autocreate="true" >	
+			<deployment table="Customers2Organizations" typecode="10700" />
+			<sourceElement type="Customer" qualifier="Customers" cardinality="many">
+				<modifiers read="true" write="true" />
+			</sourceElement>
+			<targetElement type="Organization" qualifier="Organizations" cardinality="many" >
+				<modifiers read="true" write="true" />
+			</targetElement>
+		</relation>
+		<relation code="Product2AdditionalInfo" autocreate="true" localized="false" generate="true">  
+			<description>This relation links product with additional info</description>
+            <sourceElement type="Product" qualifier="product" cardinality="one">  
+				<modifiers read="true" write="true" /> 
+			</sourceElement>
+            <targetElement type="AdditionalInfo" qualifier="additionalInfos" cardinality="many"> 
+				<modifiers read="true" write="true" /> 
+			</targetElement>			
+        </relation>
+	</relations>
+	
+	<itemtypes>
+<!-- 		<itemtype code="Supplier" autocreate="true" generate="true">
+            <deployment table="supplier" typecode="15050" />
+			<custom-properties>
+                <property name="catalogItemType">
+                    <value>java.lang.Boolean.TRUE</value>
+                </property>
+                <property name="catalogVersionAttributeQualifier">
+                    <value>"catalogVersion"</value>
+                </property>
+                <property name="uniqueKeyAttributeQualifier">
+                    <value>"id"</value>
+                </property>
+            </custom-properties>
+            <attributes>
+                <attribute qualifier="id" type="java.lang.String">
+                    <modifiers optional="false"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="supplierName" type="java.lang.String" generate="true">
+                    <persistence type="property" />
+                    <modifiers optional="false" />
+                </attribute>
+                <attribute qualifier="catalogVersion" type="CatalogVersion">
+                    <modifiers initial="true" optional="false" write="false"/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype> -->
+
+		<itemtype code="Customer"					 					 
+					 autocreate="false"
+					 generate="false"> 
+			<description>Extending Customer type with additional attributes</description>
+			<attributes>
+				<attribute autocreate="true" qualifier="status" type="java.lang.Boolean">
+					<persistence type="property" />
+					<defaultvalue>java.lang.Boolean.FALSE</defaultvalue>
+					<description>Indicates if account is locked or not</description>
+				</attribute>
+				<attribute autocreate="true" qualifier="attemptCount" type="java.lang.Integer">
+					<persistence type="property" />
+					<description>Indicates how many times user entered incorrect password</description>
+				</attribute>
+			</attributes>
+		</itemtype>
+		
+		<itemtype code="Organization" autocreate="true" generate="true">
+			<description>New type: Organization</description>
+			<deployment table="Organizations" typecode="10500" />
+			<custom-properties>
+                <property name="catalogItemType">
+                    <value>java.lang.Boolean.TRUE</value>
+                </property>
+                <property name="catalogVersionAttributeQualifier">
+                    <value>"catalogVersion"</value>
+                </property>
+                <property name="uniqueKeyAttributeQualifier">
+                    <value>"id"</value>
+                </property>
+            </custom-properties>
+			<attributes>
+				<attribute autocreate="true" qualifier="id" type="java.lang.Integer">
+					<persistence type="property" />
+					<modifiers optional="false"/>
+					<description>not a PK</description>
+				</attribute>
+                <attribute qualifier="catalogVersion" type="CatalogVersion">
+                    <modifiers initial="true" optional="false" write="false"/>
+                    <persistence type="property"/>
+                </attribute>
+				<attribute autocreate="true" qualifier="name" type="localized:java.lang.String">
+					<persistence type="property" />
+					<modifiers optional="false"/>
+					<description>Contains localized values</description>
+				</attribute>
+				<attribute autocreate="true" qualifier="phone" type="java.lang.String">
+					<persistence type="property" />
+					<modifiers optional="false"/>				
+				</attribute>
+				<attribute autocreate="true" qualifier="email" type="java.lang.String">
+					<persistence type="property" />
+					<modifiers optional="false"/>				
+				</attribute>
+				<attribute qualifier="customersCount" type="java.lang.Integer"> 
+					<description>Total number of customers</description>
+ 					<persistence type="dynamic" attributeHandler="customersCountAttributeHandler" /> 
+ 					<defaultvalue>0</defaultvalue> 
+ 					<modifiers read="true" write="false" /> 
+				</attribute> 
+				<attribute qualifier="organizationImage" type="MediaContainer" >
+						<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+		<itemtype code="AdditionalInfo" autocreate="true" generate="true">  
+				<deployment table="additionalInfo" typecode="12222" />  
+				<attributes>  
+					<attribute qualifier="id" type="java.lang.Integer">  
+						<modifiers optional="false"/>  
+						<persistence type="property"/>  
+					</attribute>  
+					<attribute qualifier="feature" type="java.lang.String" generate="true">  
+					    <persistence type="property" />  
+						<modifiers optional="false" />  
+				    </attribute>  
+				</attributes>  
+		</itemtype>
+
+	</itemtypes>
+</items>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ [y] hybris Platform
+
+ Copyright (c) 2000-2013 hybris AG
+ All rights reserved.
+
+ This software is the confidential and proprietary information of hybris
+ ("Confidential Information"). You shall not disclose such Confidential
+ Information and shall use it only in accordance with the terms of the
+ license agreement you entered into with hybris.
+-->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop.xsd"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx">
+
+	<bean id="customersCountAttributeHandler" class="com.epam.training.attributehandlers.CustomersCountAttributeHandler" />
+
+	<bean id="organizationModelService" class="com.epam.training.services.OrganizationModelService" />
+
+    <bean id="importOrganizationsJob" class="com.epam.training.jobs.ImportOrganizationsJob" autowire="byName"/>
+
+    <bean id="organizationDao" class="com.epam.training.dao.impl.DefaultOrganizationDao"/>
+
+    <bean id="mailService" class="com.epam.training.services.MailService"/>
+
+    <!--<bean id="emailService" class="de.hybris.platform.acceleratorservices.email.impl.DefaultEmailService"/>-->
+    <bean id="emailService" class="com.epam.training.services.MailService"/>
+    <bean id="sendEmailJob" class="com.epam.training.jobs.SendEmailJob" autowire="byName"/>
+
+    <alias name="defaultOrganizationFacade" alias="organizationFacade"/>
+     <bean id="defaultOrganizationFacade" class="com.epam.training.facades.impl.DefaultOrganizationFacade">
+        <property name="organizationService" ref="organizationService" />
+    </bean>
+
+    <bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <value>
+                mailService.sendersEmail=darwinepam@gmail.com
+                mailService.sendersName=darwinepam
+                mailService.subject=Daily mail
+            </value>
+        </property>
+    </bean>
+
+     <bean id="emailInterceptor" class="com.epam.training.core.interceptors.OrganizationEmailInterceptor"
+          scope="tenant" autowire="byName"/>
+
+     <bean id="emailInterceptorMapping" scope="tenant"
+          class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+        <property name="interceptor" ref="emailInterceptor"/>
+        <property name="typeCode" value="Organization"/>
+    </bean>
+
+    <alias alias="organizationService" name="defaultOrganizationService" />
+    <bean id="defaultOrganizationService" class="com.epam.training.services.impl.DefaultOrganizationService">
+        <property name="organizationDao" ref="organizationDao"/>
+    </bean>
+</beans>

@@ -1,0 +1,3 @@
+"#% impex.setTargetFile( ""Organization.csv"" , true );"  
+insert_update Organization; pk[unique=true]; id[unique=true]; name; email; customers(name);  
+"#% impex.exportItems( ""Organization"" , true );" 
