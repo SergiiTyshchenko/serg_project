@@ -23,7 +23,7 @@
 
 	<bean id="organizationModelService" class="com.epam.training.services.OrganizationModelService" />
 
-    <bean id="importOrganizationsJob" class="com.epam.training.jobs.ImportOrganizationsJob" autowire="byName"/>
+    <bean id="importOrganizationsJob" class="com.epam.training.jobs.ImportOrganizationsJob" autowire="byName"/> <!-- new one -->
 
     <bean id="organizationDao" class="com.epam.training.dao.impl.DefaultOrganizationDao"/>
 
